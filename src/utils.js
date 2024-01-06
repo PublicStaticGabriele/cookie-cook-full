@@ -4,10 +4,6 @@
 export function cookiesToText (copyStyle, cookies) {
   switch (copyStyle) {
     case 'json':
-      cookies = cookies.reduce(function (map, obj) {
-        map[obj.name] = obj.value
-        return map
-      }, {})
       return JSON.stringify(cookies)
     case 'http':
       return cookies.map(cookie => cookie.name + '=' + cookie.value).join('; ')
